@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>JS Calculator</title>
-    <script src="script.js"></script>
+    
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/bootstrap.css">
     <link rel="stylesheet" href="style/bootstrap-grid.css">
@@ -10,7 +10,7 @@
   <body>
     <div id="calculator">
         <p class="title">Simple Javascript Calculator</p>
-        <input type="text" disabled id="answer">
+        <input type="text" disabled id="answer" placeholder="0">
         <div class="keys">
             <div class="row">
                 <button class="ctrl">AC</button>
@@ -19,8 +19,8 @@
                 <button>/</button>   
             </div>
             <div class="row">
+                <button id="eight">8</button>
                 <button>7</button>
-                <button>8</button>
                 <button>9</button>
                 <button>x</button>   
             </div>
@@ -44,5 +44,6 @@
         </div>
 
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
