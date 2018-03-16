@@ -3,9 +3,6 @@ var total = 0;
 var temp = '';
 var val = 0;
 
-
-//add click event to numbered buttons, to get their number
-var keys = document.getElementsByTagName("button");
 //display number in answer
 function display(x){
     document.querySelector('#answer').value = x;
@@ -14,7 +11,10 @@ function pushAndReset(){
     entries.push(temp)
     entries.push(val)
     temp = ''
+    display(val)
 }    
+//add click event to numbered buttons, to get their number
+var keys = document.getElementsByTagName("button");
     for (var i=0; i<keys.length; i++){
     keys[i].addEventListener("click",  function(event){
         val = (event.target.textContent)
@@ -34,27 +34,22 @@ function pushAndReset(){
         //push temp to entries[0] + symbol to entries [1]
         } else if (val == '+'){
             pushAndReset()
-            // entries.push(temp);
-            // entries.push('+');
-            // temp = ''
-            display(val)
         }else if (val == 'x'){
+            // pushAndReset() doesnt work for 'x'??
             entries.push(temp);
             entries.push('*');
             temp = ''
             display(val)
         }else if (val == '-'){
-            entries.push(temp);
-            entries.push('-');
-            temp = ''
-            display(val)
+            pushAndReset()
         }else if (val == '/'){
-            entries.push(temp);
-            entries.push('/');
-            temp = ''
-            display(val)
+            pushAndReset()
+
         //push temp to entries[2]
         } else if (val === '=') {
+            function answer(){
+
+            }
             entries.push(temp);
         // set entires[0] as number
           var nt = Number(entries[0]);
