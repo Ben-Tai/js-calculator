@@ -32,25 +32,15 @@ var keys = document.getElementsByTagName("button");
             temp = ''
             display(total)
         //push temp to entries[0] + symbol to entries [1]
-        } else if (val == '+'){
+        } else if (isNaN(val)){
             pushAndReset()
-        }else if (val == 'x'){
-            // pushAndReset() doesnt work for 'x'??
-            entries.push(temp);
-            entries.push('*');
-            temp = ''
-            display(val)
-        }else if (val == '-'){
-            pushAndReset()
-        }else if (val == '/'){
-            pushAndReset()
-
+       
         //push temp to entries[2]
-        } else if (val === '=') {
-            function answer(){
-
-            }
+        } if (val === '=') {
             entries.push(temp);
+            function answer(){
+                x = entires
+            }
         // set entires[0] as number
           var nt = Number(entries[0]);
         // loop through array and set entries[1] as symbol and entries [1+] and nextNum
