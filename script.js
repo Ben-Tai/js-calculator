@@ -6,43 +6,53 @@ var val = 0;
 
 //add click event to numbered buttons, to get their number
 var keys = document.getElementsByTagName("button");
-for (var i=0; i<keys.length; i++){
+//display number in answer
+function display(x){
+    document.querySelector('#answer').value = x;
+}
+function pushAndReset(){
+    entries.push(temp)
+    entries.push(val)
+    temp = ''
+}    
+    for (var i=0; i<keys.length; i++){
     keys[i].addEventListener("click",  function(event){
         val = (event.target.textContent)
         //add number to string and show in display
         if (!isNaN(val) || val === '.') {
             temp += val
-            document.querySelector('#answer').value = temp;
+            display(temp)
         //clear temp/entries
         } else if (val == 'AC') {
             entries = []
             temp = ''  
             total = 0 
-            document.querySelector('#answer').value = total;
+           display(total)
         }else if (val == 'CE'){
             temp = ''
-            document.querySelector('#answer').value = total;
+            display(total)
         //push temp to entries[0] + symbol to entries [1]
         } else if (val == '+'){
-            entries.push(temp);
-            entries.push('+');
-            temp = ''
-            document.querySelector('#answer').value = val;
+            pushAndReset()
+            // entries.push(temp);
+            // entries.push('+');
+            // temp = ''
+            display(val)
         }else if (val == 'x'){
             entries.push(temp);
             entries.push('*');
             temp = ''
-            document.querySelector('#answer').value = val;
+            display(val)
         }else if (val == '-'){
             entries.push(temp);
             entries.push('-');
             temp = ''
-            document.querySelector('#answer').value = val;
+            display(val)
         }else if (val == '/'){
             entries.push(temp);
             entries.push('/');
             temp = ''
-            document.querySelector('#answer').value = val;
+            display(val)
         //push temp to entries[2]
         } else if (val === '=') {
             entries.push(temp);
@@ -65,7 +75,7 @@ for (var i=0; i<keys.length; i++){
           if (nt < 0) {
             nt = Math.abs(nt) + '-';
           }
-          // display answer
+          // display
           document.querySelector('#answer').value = nt;
               entries = [];
           temp = '';
